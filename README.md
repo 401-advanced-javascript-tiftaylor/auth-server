@@ -11,11 +11,15 @@
 #### `.env` requirements
 - PORT
 - MONGODB_URI
+- JWT_SECRET
 
 #### `package.json` requirements
 - `npm install`
   - [express](https://expressjs.com/)
   - [dotenv](https://www.npmjs.com/package/dotenv)
+  - [base-64](https://www.npmjs.com/package/base-64)
+  - [bcrypt](https://www.npmjs.com/package/bcrypt)
+  - [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 
 
 #### Running the app

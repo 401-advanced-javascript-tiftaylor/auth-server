@@ -6,9 +6,10 @@ const app = express();
 const timeStamp = require('./middleware/timestamp.js')
 const logger = require('./middleware/logger.js')
 const serverErr = require('./middleware/500.js')
-const router = require('./routes.js');
+const router = require('./auth/routes.js');
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 
 app.use(timeStamp);

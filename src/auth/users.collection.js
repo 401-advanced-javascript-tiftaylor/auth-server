@@ -22,26 +22,42 @@ class UserCollection  {
     this.schema.find({ username: username })
       .then(results => {
         //TODO:  handle case where no user found
-        const user = results[0];
-        if(user.hashPassword === password) {
-          return user;
-        } else {
+        if(results.length === 0){
           throw Error `You did not use the right credentials`
+        } else {
+          const user = results[0];
+          return bcrypt.compare(password, user.hashPassword)
+            .then(isValid => {
+              if(isValid) {
+                return user;
+              } else {
+                throw Error `You did not use the right credentials`
+              }
+            })
         }
       })
   }
+
+
+  generateToken(username){
+    return jwt.sign({ username: username }, process.env.JWT_SECRET);
+  }
+
 
   /**
    * adds a note to the list
    * @param {object} obj / text, category
    */
   create(obj) {
-    const newObj = {
-      username: obj.username,
-      hashPassword: 'jkhgkhjg' //obj.password
-    }
-    const newUser = new this.schema(newObj);
-    return newUser.save();
+    return bcrypt.hash(obj.password, 10)
+      .then(hashPassword => {
+        const newObj = {
+          username: obj.username,
+          hashPassword: hashPassword
+        }
+        const newUser = new this.schema(newObj);
+        return newUser.save();
+      });
   }
 
   update(id, obj) {
