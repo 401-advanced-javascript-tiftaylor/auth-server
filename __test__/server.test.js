@@ -1,6 +1,5 @@
 const supergoose = require('@code-fellows/supergoose');
 const { test, expect } = require('@jest/globals');
-require('dotenv').config()
 
 const app = require('../src/server.js').app;
 const testServer = supergoose(app);
@@ -8,6 +7,7 @@ const testServer = supergoose(app);
 describe('testing express server app', () => {
 
   test('create user, sign in, get users', async () => {
+    process.env.JWT_SECRET = 'asdf';
     const user = {
       "username": "tiffany", 
       "password": "asdf",
