@@ -5,7 +5,10 @@ const { Schema } = mongoose;
 
 const usersSchema = new Schema({
   username: String, 
-  hashPassword: String,
+  password: String,
+  email: String,
+  fullname: String,
+  role: String
 });
 
 usersSchema.set('toJSON', {

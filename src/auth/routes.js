@@ -10,7 +10,10 @@ router.post('/signup', (req,res,next) => {
   const user = req.body;
   users.create(user)
     .then(user => {
-      res.send(`created user ${user.username}`);
+      res.send({
+        user: user,
+        token: users.generateToken(user.username)
+      });
     })
     .catch(next)
 })

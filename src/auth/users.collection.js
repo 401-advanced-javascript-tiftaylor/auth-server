@@ -1,4 +1,6 @@
-const userModel = require('./users.js');
+const userModel = require('./userModel.js');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 class UserCollection  {
 
@@ -26,7 +28,7 @@ class UserCollection  {
           throw Error `You did not use the right credentials`
         } else {
           const user = results[0];
-          return bcrypt.compare(password, user.hashPassword)
+          return bcrypt.compare(password, user.password)
             .then(isValid => {
               if(isValid) {
                 return user;
@@ -51,11 +53,8 @@ class UserCollection  {
   create(obj) {
     return bcrypt.hash(obj.password, 10)
       .then(hashPassword => {
-        const newObj = {
-          username: obj.username,
-          hashPassword: hashPassword
-        }
-        const newUser = new this.schema(newObj);
+        obj.password = hashPassword;
+        const newUser = new this.schema(obj);
         return newUser.save();
       });
   }
