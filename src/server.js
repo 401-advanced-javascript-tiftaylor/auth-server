@@ -8,6 +8,7 @@ const logger = require('./middleware/logger.js')
 const notFound = require('./middleware/404.js')
 const serverErr = require('./middleware/500.js')
 const router = require('./auth/routes.js');
+const extraRoutes = require('./extra-routes.js');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(timeStamp);
 app.use(logger);
 app.use(router);
+app.use(extraRoutes);
 app.use(notFound);
 app.use(serverErr);
 

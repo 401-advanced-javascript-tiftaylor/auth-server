@@ -1,8 +1,8 @@
 'use strict';
 
 const express = require('express');
-const users = require('./users.collection.js');
-const basicAuth = require('./middleware/basicAuth.js');
+const users = require('./users.collection.model.js');
+const basicAuth = require('./middleware/basic-auth.js');
 const router = express.Router();
 
 
