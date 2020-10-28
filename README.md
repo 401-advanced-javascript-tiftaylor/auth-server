@@ -33,14 +33,14 @@
 
 
 ### UML for Lab11 thru Lab 14
-**Lab 11**
-![UML Lab06](assets/lab11uml.jpg)
-**Lab 12**
-![UML Lab07](assets/lab12uml.jpg)
+**Lab 11 | Basic Auth**
+![UML Lab11](assets/lab11uml.jpg)
+**Lab 12 | Bearer Auth**
+![UML Lab12](assets/lab12uml.jpg)
 **Lab 13**
-![UML Lab08](assets/lab13uml.jpg)
+![UML Lab13](assets/lab13uml.jpg)
 **Lab 14**
-![UML Lab09](assets/lab14uml.jpg)
+![UML Lab14](assets/lab14uml.jpg)
 
 ### Resources: 
 - For dealing with _id I used this tip from [StackOverflow](https://stackoverflow.com/questions/7034848/mongodb-output-id-instead-of-id)
