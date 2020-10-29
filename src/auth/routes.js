@@ -3,6 +3,7 @@
 const express = require('express');
 const users = require('./users.collection.model.js');
 const basicAuth = require('./middleware/basic-auth.js');
+const oauth = require('./middleware/oauth.js');
 const router = express.Router();
 
 
@@ -27,6 +28,11 @@ router.post('/signin', basicAuth, (req,res,next) => {
   });
 })
 
+router.get('/oauth', oauth, (req,res,next) => {
+  
+    .catch(next);
+})
+
 router.get('/users', (req,res,next) => {
   users.read()
     .then(things => {
@@ -37,6 +43,7 @@ router.get('/users', (req,res,next) => {
     })
     .catch(next);
 })
+
 
 
 
