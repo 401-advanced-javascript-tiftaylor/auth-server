@@ -37,8 +37,8 @@
 ![UML Lab11](assets/lab11uml.jpg)
 **Lab 12 | Bearer Auth**
 ![UML Lab12](assets/lab12uml.jpg)
-**Lab 13**
-![UML Lab13](assets/lab13uml.jpg)
+**Lab 13b**
+![UML Lab13b](assets/lab13uml.jpg)
 **Lab 14**
 ![UML Lab14](assets/lab14uml.jpg)
 
